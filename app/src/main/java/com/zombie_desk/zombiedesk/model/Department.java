@@ -40,4 +40,10 @@ public class Department {
     public void setLocale(String locale) {
         this.locale = locale;
     }
+
+    public static Department findById(int id)
+    {
+        //TODO implementar busca
+        return new Department();
+    }
 }

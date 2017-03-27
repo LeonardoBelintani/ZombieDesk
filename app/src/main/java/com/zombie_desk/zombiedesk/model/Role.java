@@ -30,4 +30,10 @@ public class Role {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static Role findById(int id)
+    {
+        //TODO implementar busca
+        return new Role();
+    }
 }

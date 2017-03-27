@@ -13,5 +13,50 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Zombie Desk"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/lblPrincipal"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete|textEmailSubject"
+        android:ems="10"
+        android:layout_marginTop="25dp"
+        android:id="@+id/txtLogin"
+        android:maxLength="100"
+        android:layout_below="@+id/lblPrincipal"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:layout_below="@+id/txtLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:id="@+id/passLogin"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Forgotten my pass!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRecoverPass"
+        android:layout_alignBaseline="@+id/btnLogin"
+        android:layout_alignBottom="@+id/btnLogin"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="LOGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:elevation="0dp" />
+
 </RelativeLayout>
