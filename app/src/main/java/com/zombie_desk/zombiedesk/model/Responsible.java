@@ -66,4 +66,10 @@ public class Responsible {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public static Responsible findById(int id)
+    {
+        //TODO implementar busca
+        return new Responsible();
+    }
 }

@@ -3,6 +3,8 @@ package com.zombie_desk.zombiedesk.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 /**
  * Created by Lab. Desenvolvimento on 23/03/2017.
  */
@@ -72,11 +74,24 @@ public class User {
         return new User();
     }
 
+    public static List<User> findAll()
+    {
+        //TODO implementar busca
+        return null;
+    }
+
     public Boolean save(JSONObject json)
     {
         //TODO
         //Metodo que vai salvar no webservice a model
 
         return true;
+    }
+
+    public User Login()
+    {
+        //TODO
+        //Implementar aqui login, fazer webservice retornar um json com id do usuario
+        return null;
     }
 }

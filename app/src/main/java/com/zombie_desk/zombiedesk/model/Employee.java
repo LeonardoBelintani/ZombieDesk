@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Lab. Desenvolvimento on 23/03/2017.
@@ -127,13 +128,24 @@ public class Employee {
         }
     }
 
+    public static Employee findById(int id)
+    {
+        //TODO implementar busca
+        return new Employee();
+    }
+
+    public static List<Employee> findAll()
+    {
+        //TODO implementar busca
+        return null;
+    }
+
     public Boolean save(JSONObject json)
     {
         //TODO
         //Metodo que vai salvar no webservice a model
-
-
         return true;
     }
+
 
 }
