@@ -11,23 +11,15 @@
     tools:context="com.zombie_desk.zombiedesk.CreateUserActivity">
 
     <TextView
-        android:text="Cadastro de Usuário"
+        android:text="User registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:gravity="center_vertical|center_horizontal" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="36dp"
-        android:id="@+id/txtEmail"
-        android:layout_below="@+id/textView"
-        android:inputType="textEmailAddress"
-        android:hint="Digite seu e-mail exemplo@exemplo.com.br" />
+        android:gravity="center_vertical|center_horizontal"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -38,10 +30,11 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
         android:id="@+id/txtPass"
-        android:hint="Digite uma senha" />
+        android:hint="Type your password"
+        android:fontFamily="sans-serif" />
 
     <Button
-        android:text="Salvar"
+        android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtPass"
@@ -50,10 +43,22 @@
         android:id="@+id/btnSave" />
 
     <Button
-        android:text="Voltar"
+        android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/btnSave"
         android:layout_alignParentEnd="true"
         android:id="@+id/btnReturn" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="24dp"
+        android:id="@+id/txtEmail"
+        android:inputType="textEmailAddress"
+        android:hint="Type your e-mail"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

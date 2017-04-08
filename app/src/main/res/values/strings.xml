@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ZombieDesk</string>
+    <string name="ErrorIntent">Action not supported</string>
+    <string-array name="actions">
+        <item>Browser</item>
+        <item>Fazer uma chamada</item>
+        <item>Mapa</item>
+        <item>Tocar musica</item>
+        <item>SMS</item>
+        <item>Compartilhar</item>
+        <item>Alarme</item>
+        <item>Configurações</item>
+        <item>Sair</item>
+    </string-array>
 </resources>

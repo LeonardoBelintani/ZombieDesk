@@ -76,13 +76,13 @@ public class User {
 
     public static List<User> findAll()
     {
-        //TODO implementar busca
+        //TODO implementar busca geral
         return null;
     }
 
     public Boolean save(JSONObject json)
     {
-        //TODO
+        //TODO implantar salvar
         //Metodo que vai salvar no webservice a model
 
         return true;
@@ -90,7 +90,7 @@ public class User {
 
     public User Login()
     {
-        //TODO
+        //TODO implantar login
         //Implementar aqui login, fazer webservice retornar um json com id do usuario
         return null;
     }
