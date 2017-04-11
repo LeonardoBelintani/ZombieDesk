@@ -1,8 +1,13 @@
 package com.zombie_desk.zombiedesk.model;
 
+import com.zombie_desk.zombiedesk.dao.WebService;
+import com.zombie_desk.zombiedesk.util.Util;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -48,19 +53,14 @@ public class User {
         this.id = id;
     }
 
-    public JSONObject toJson(){
-        JSONObject json = new JSONObject();
-        try {
-            json.put("username", this.username);
-            json.put("password", this.password);
-        }catch(JSONException e){
-            json = null;
-        }
-        return json;
-    }
-
-    public void toUser(JSONObject json){
+    /**
+     * Recebe uma string e preenche o objeto atual
+     * @param jsonString
+     */
+    public void fillUser(String jsonString){
         try{
+            JSONObject json = new JSONObject(jsonString);
+            this.id = json.getInt("id");
             this.username = json.getString("username");
             this.password = json.getString("password");
         }catch(JSONException e){
@@ -80,18 +80,22 @@ public class User {
         return null;
     }
 
-    public Boolean save(JSONObject json)
+    /**
+     * Vai salvar o usuario e retornar um objeto com informacoes do mesmo
+      * @return
+     */
+    public User save()
     {
         //TODO implantar salvar
         //Metodo que vai salvar no webservice a model
+        JSONObject json = new JSONObject();
+        try {
+            json.put("username", this.username);
+            json.put("password", this.password);
+        }catch(JSONException e){
+            json = null;
+        }
 
-        return true;
-    }
-
-    public User Login()
-    {
-        //TODO implantar login
-        //Implementar aqui login, fazer webservice retornar um json com id do usuario
         return null;
     }
 }
