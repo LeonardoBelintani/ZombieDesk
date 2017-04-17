@@ -26,11 +26,6 @@ public class LoginActivity extends Activity {
     TextView lblResult;
     Intent intent;
     User user;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +34,6 @@ public class LoginActivity extends Activity {
         this.txtLogin = (EditText) findViewById(R.id.txtLogin);
         this.txtPassword = (EditText) findViewById(R.id.txtPassword);
         this.lblResult = (TextView) findViewById(R.id.lblResult);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void acessar(View v) {
@@ -85,6 +77,7 @@ public class LoginActivity extends Activity {
             } else {
                 //Preenche o objeto atual
                 user.fillUser(jSon);
+                lblResult.setText("Funciono");
             }
         }
     }

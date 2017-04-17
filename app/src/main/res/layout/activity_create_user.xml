@@ -61,4 +61,12 @@
         android:fontFamily="sans-serif"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSave"
+        android:layout_marginTop="49dp"
+        android:id="@+id/lblResult"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

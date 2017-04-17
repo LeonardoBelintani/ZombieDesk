@@ -13,5 +13,10 @@ public class WebService {
         return "http://lexgalante.esy.es/zombiews/user/acess.php?username="+ user.getUsername() +"&password=" + user.getPassword();
     }
 
+    public static String urlUserCreate()
+    {
+        return "http://lexgalante.esy.es/zombiews/user/create.php";
+    }
+
 
 }
