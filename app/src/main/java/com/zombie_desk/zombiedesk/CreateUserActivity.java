@@ -3,6 +3,7 @@ package com.zombie_desk.zombiedesk;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,9 +32,19 @@ public class CreateUserActivity extends Activity {
         this.lblResult = (TextView) findViewById(R.id.lblResult);
     }
 
-    private class CreateUser extends AsyncTask<Void, Void, User> {
+    public void save(View v) {
+        try {
+            user = new User(String.valueOf(txtPass.getText()), String.valueOf(txtLogin.getText()));
+            new CreateUser().execute(user);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class CreateUser extends AsyncTask<User, Void, User> {
         @Override
-        protected User doInBackground(Void... params) {
+        protected User doInBackground(User... params) {
             try {
                 URL url = new URL(WebService.urlUserCreate());
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -55,7 +66,7 @@ public class CreateUserActivity extends Activity {
                 user.fillUser(response);
             }
             catch(Exception e) {
-                System.out.println("Erro no background da classe CREATEUSER");
+                System.out.println("Erro no background da classe CREATE-USER");
                 e.printStackTrace();
             }
 

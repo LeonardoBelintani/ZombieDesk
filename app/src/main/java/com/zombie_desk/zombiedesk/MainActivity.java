@@ -20,4 +20,10 @@ public class MainActivity extends Activity
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    public void createUser(View v)
+    {
+        Intent intent = new Intent(this, CreateUserActivity.class);
+        startActivity(intent);
+    }
 }

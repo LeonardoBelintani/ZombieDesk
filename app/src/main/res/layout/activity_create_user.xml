@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:layout_below="@+id/txtEmail"
+        android:layout_below="@+id/txtLogin"
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
         android:id="@+id/txtPass"
@@ -40,7 +40,8 @@
         android:layout_below="@+id/txtPass"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp"
-        android:id="@+id/btnSave" />
+        android:id="@+id/btnSave"
+        android:onClick="save" />
 
     <Button
         android:text="Back"
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="24dp"
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtLogin"
         android:inputType="textEmailAddress"
         android:hint="Type your e-mail"
         android:fontFamily="sans-serif"
