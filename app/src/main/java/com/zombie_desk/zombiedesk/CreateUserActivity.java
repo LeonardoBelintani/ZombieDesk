@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.zombie_desk.zombiedesk.dao.WebService;
 import com.zombie_desk.zombiedesk.model.User;
-import com.zombie_desk.zombiedesk.util.Util;
 
 import org.json.JSONObject;
 

@@ -2,20 +2,14 @@ package com.zombie_desk.zombiedesk;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.zombie_desk.zombiedesk.dao.WebService;
 import com.zombie_desk.zombiedesk.model.User;
-import com.zombie_desk.zombiedesk.util.Util;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

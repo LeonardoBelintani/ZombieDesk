@@ -1,18 +1,22 @@
-package com.zombie_desk.zombiedesk.model;
+package com.zombie_desk.zombiedesk;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.zombie_desk.zombiedesk.model.User;
 
 import java.util.List;
 
 /**
- * Created by Lab. Desenvolvimento on 17/04/2017.
+ * Created by Belintani on 19/04/2017.
  */
 
-public class UserAdapter extends ArrayAdapter<User> {
+public class UserAdapter extends ArrayAdapter<User>
+{
     private List<User> users;
     private int layout;
 
@@ -34,22 +38,14 @@ public class UserAdapter extends ArrayAdapter<User> {
         User user = users.get(position);
 
         if(user != null){
-            TextView textID = (TextView) localView.findViewById(R.id.textID);
-            TextView textNome = (TextView) localView.findViewById(R.id.textNome);
-            TextView textCidade = (TextView) localView.findViewById(R.id.textCidade);
-            TextView textAno = (TextView) localView.findViewById(R.id.textAno);
+            TextView textUsername = (TextView) localView.findViewById(R.id.textUsername);
+            TextView textPassword = (TextView) localView.findViewById(R.id.textPassword);
 
-            if(textID != null){
-                textID.setText(String.valueOf(clube.getID()));
+            if(textUsername != null){
+                textUsername.setText(String.valueOf(user.getUsername()));
             }
-            if(textNome != null){
-                textNome.setText(clube.getNome());
-            }
-            if(textCidade != null){
-                textCidade.setText(clube.getCidade());
-            }
-            if(textAno != null){
-                textAno.setText(String.valueOf(clube.getAno()));
+            if(textPassword != null){
+                textPassword.setText(user.getPassword());
             }
         }
         return localView;

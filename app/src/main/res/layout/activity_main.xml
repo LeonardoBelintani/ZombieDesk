@@ -28,4 +28,11 @@
         android:id="@+id/btnCreateUser"
         android:layout_alignParentStart="true"
         android:onClick="createUser" />
+
+    <Button
+        android:text="listar usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnlistar"
+        android:onClick="ListarUsuarios" />
 </RelativeLayout>

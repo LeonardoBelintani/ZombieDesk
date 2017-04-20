@@ -26,4 +26,10 @@ public class MainActivity extends Activity
         Intent intent = new Intent(this, CreateUserActivity.class);
         startActivity(intent);
     }
+
+    public void ListarUsuarios(View v)
+    {
+        Intent intent = new Intent(this, ListUserActivity.class);
+        startActivity(intent);
+    }
 }

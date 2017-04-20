@@ -1,13 +1,8 @@
 package com.zombie_desk.zombiedesk.model;
 
-import com.zombie_desk.zombiedesk.dao.WebService;
-import com.zombie_desk.zombiedesk.util.Util;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
 /**
