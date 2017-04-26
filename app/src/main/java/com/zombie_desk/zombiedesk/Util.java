@@ -66,4 +66,25 @@ public class Util {
         }
         return users;
     }
+
+    public static String convertUsertoJSON(User user){
+        JSONObject mainObject = new JSONObject();
+        try {
+            mainObject.put("username",user.getUsername());
+            mainObject.put("password",user.getPassword());
+
+            return mainObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static String getStatusFromJSON(String json){
+        try {
+            return new JSONObject(json).getString("status");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

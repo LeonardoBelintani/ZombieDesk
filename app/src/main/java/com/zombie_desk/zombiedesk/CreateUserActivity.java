@@ -1,85 +1,131 @@
 package com.zombie_desk.zombiedesk;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.zombie_desk.zombiedesk.dao.WebService;
 import com.zombie_desk.zombiedesk.model.User;
-
-import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class CreateUserActivity extends Activity {
+public class CreateUserActivity extends Activity
+{
     EditText txtLogin;
     EditText txtPass;
     TextView lblResult;
     User user;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
-        this.txtLogin = (EditText) findViewById(R.id.txtLogin);
-        this.txtPass = (EditText) findViewById(R.id.txtPass);
-        this.lblResult = (TextView) findViewById(R.id.lblResult);
+        txtLogin = (EditText) findViewById(R.id.txtLogin);
+        lblResult = (TextView) findViewById(R.id.lblResult);
+        txtPass = (EditText) findViewById(R.id.txtPass);
     }
 
-    public void save(View v) {
-        try {
-            user = new User(String.valueOf(txtPass.getText()), String.valueOf(txtLogin.getText()));
-            new CreateUser().execute(user);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void cadastrarUsuario(View v)
+    {
+        User user = new User();
+        user.setUsername(txtLogin.getText().toString());
+        user.setPassword(txtPass.getText().toString());
+        new UploadToMyAPI().execute(user);
+
     }
 
-    private class CreateUser extends AsyncTask<User, Void, User> {
+    private class UploadToMyAPI extends AsyncTask<User, Void, String>
+    {
+        boolean isConnected = false;
+        ProgressDialog progress;
+        int serverResponseCode;
+        String serverResponseMessage;
+
         @Override
-        protected User doInBackground(User... params) {
-            try {
-                URL url = new URL(WebService.urlUserCreate());
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoOutput(true);
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.connect();
+        protected void onPreExecute()
+        {
+            ConnectivityManager cm =
+                    (ConnectivityManager) CreateUserActivity.this.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 
-                JSONObject json = new JSONObject();
-                json.put("username", user.getUsername());
-                json.put("password", user.getPassword());
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            isConnected = activeNetwork != null &&
+                    activeNetwork.isConnectedOrConnecting();
 
-                DataOutputStream stream = new DataOutputStream(connection.getOutputStream());
-                stream.writeBytes(json.toString());
-                stream.flush();
-                stream.close();
-
-                String response = Util.webToString(connection.getInputStream());
-                user.fillUser(response);
+            if (!isConnected)
+            {
+                Toast.makeText(CreateUserActivity.this, "Verifique a conexão com a internet...", Toast.LENGTH_SHORT).show();
             }
-            catch(Exception e) {
-                System.out.println("Erro no background da classe CREATE-USER");
-                e.printStackTrace();
-            }
-
-            return user;
         }
 
         @Override
-        protected void onPostExecute(User user) {
-            if(user.getId() > 0) {
-                lblResult.setText("Usuário cadastrado com sucesso: nº "+user.getId());
+        protected String doInBackground(User... params)
+        {
+            String result;
+            HttpURLConnection urlConnection = null;
+            try
+            {
+                URL url = new URL("http://lexgalante.esy.es/zombiews/user/create.php");
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Content-type", "application/json");
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
+
+                DataOutputStream outputStream = new DataOutputStream(urlConnection.getOutputStream());
+
+                result = Util.convertUsertoJSON(params[0]);
+                outputStream.writeBytes(result);
+
+                serverResponseCode = urlConnection.getResponseCode();
+                serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+
+                outputStream.flush();
+                outputStream.close();
+
+            } catch (Exception e)
+            {
+                Log.e("Error", "Error ", e);
+                return null;
+            } finally
+            {
+                if (urlConnection != null)
+                {
+                    urlConnection.disconnect();
+                }
             }
-            else {
-                lblResult.setText("Não foi possivel cadastrar o usuário!");
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s)
+        {
+            super.onPostExecute(s);
+            if (isConnected)
+            {
+                Intent listUser;
+                if (Util.getStatusFromJSON(serverResponseMessage).equals("1"))
+                {
+                    Toast.makeText(CreateUserActivity.this, "usuario registrado no Sistema!", Toast.LENGTH_SHORT).show();
+                    listUser = new Intent(CreateUserActivity.this, ListUserActivity.class);
+                    startActivity(listUser);
+                } else
+                {
+                    Toast.makeText(CreateUserActivity.this, "Falha ao cadastrar o usuario.", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
+
 }

@@ -1,13 +1,6 @@
 package com.zombie_desk.zombiedesk.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Lab. Desenvolvimento on 23/03/2017.
@@ -18,11 +11,92 @@ public class Employee {
     private String name;
     private String gender;
     private Date birth;
-    private User user;
-    private Role role;
-    private Department department;
+    private int user_id;
+    private int role_id;
+    private int department_id;
 
     public Employee() {
+    }
+
+    public Employee(int id, String name, String gender, Date birth, int user_id, int role_id, int department_id)
+    {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.birth = birth;
+        this.user_id = user_id;
+        this.role_id = role_id;
+        this.department_id = department_id;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getGender()
+    {
+        return gender;
+    }
+
+    public void setGender(String gender)
+    {
+        this.gender = gender;
+    }
+
+    public Date getBirth()
+    {
+        return birth;
+    }
+
+    public void setBirth(Date birth)
+    {
+        this.birth = birth;
+    }
+
+    public int getUser_id()
+    {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id)
+    {
+        this.user_id = user_id;
+    }
+
+    public int getRole_id()
+    {
+        return role_id;
+    }
+
+    public void setRole_id(int role_id)
+    {
+        this.role_id = role_id;
+    }
+
+    public int getDepartment_id()
+    {
+        return department_id;
+    }
+
+    public void setDepartment_id(int department_id)
+    {
+        this.department_id = department_id;
     }
 
     public Employee(String name, String gender, Date birth) {
@@ -30,122 +104,5 @@ public class Employee {
         this.gender = gender;
         this.birth = birth;
     }
-
-    public Employee(String name, String gender, Date birth, User user, Role role, Department department) {
-        this.name = name;
-        this.gender = gender;
-        this.birth = birth;
-        this.user = user;
-        this.role = role;
-        this.department = department;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public Date getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public JSONObject toJson(){
-        JSONObject json = new JSONObject();
-        try {
-            json.put("name", this.name);
-            json.put("gender", this.gender);
-            json.put("birth", this.birth);
-            json.put("user_id", this.user.getId());
-            json.put("role_id", this.role.getId());
-            json.put("department_id", this.department.getId());
-        }catch(JSONException e){
-            json = null;
-        }
-        return json;
-    }
-
-    public void toEmployee(JSONObject json){
-        try{
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
-            this.name = json.getString("name");
-            this.gender = json.getString("gender");
-            this.birth = formatter.parse(json.getString("birth"));
-            this.user = User.findById(json.getInt("user_id"));
-            this.role = Role.findById(json.getInt("role_id"));
-            this.department = Department.findById(json.getInt("password"));
-        }catch(JSONException e){
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Employee findById(int id)
-    {
-        //TODO implementar busca
-        return new Employee();
-    }
-
-    public static List<Employee> findAll()
-    {
-        //TODO implementar busca
-        return null;
-    }
-
-    public Boolean save(JSONObject json)
-    {
-        //TODO
-        //Metodo que vai salvar no webservice a model
-        return true;
-    }
-
 
 }

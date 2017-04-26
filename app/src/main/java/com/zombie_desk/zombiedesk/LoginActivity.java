@@ -71,7 +71,7 @@ public class LoginActivity extends Activity {
             } else {
                 //Preenche o objeto atual
                 user.fillUser(jSon);
-                lblResult.setText("Funciono");
+                lblResult.setText("Funcionou");
             }
         }
     }

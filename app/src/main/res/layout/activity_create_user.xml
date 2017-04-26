@@ -24,14 +24,25 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="24dp"
+        android:id="@+id/txtLogin"
+        android:inputType="textEmailAddress"
+        android:hint="Type your e-mail"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:layout_below="@+id/txtLogin"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="28dp"
         android:id="@+id/txtPass"
         android:hint="Type your password"
-        android:fontFamily="sans-serif" />
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/txtLogin"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:text="Save"
@@ -41,7 +52,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp"
         android:id="@+id/btnSave"
-        android:onClick="save" />
+        android:onClick="cadastrarUsuario" />
 
     <Button
         android:text="Back"
@@ -51,18 +62,6 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/btnReturn" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="24dp"
-        android:id="@+id/txtLogin"
-        android:inputType="textEmailAddress"
-        android:hint="Type your e-mail"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,4 +69,6 @@
         android:layout_marginTop="49dp"
         android:id="@+id/lblResult"
         android:layout_alignParentEnd="true" />
+
+
 </RelativeLayout>

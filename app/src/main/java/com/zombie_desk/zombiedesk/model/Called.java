@@ -15,23 +15,27 @@ public class Called {
     private String motivo;
     private String priority;
     private String status;
-    private Responsible responsible;
-    private Employee employee;
+    private int responsible_id;
+    private int employee_id;
 
-    public Responsible getResponsible() {
-        return responsible;
+    public int getResponsible_id()
+    {
+        return responsible_id;
     }
 
-    public void setResponsible(Responsible responsible) {
-        this.responsible = responsible;
+    public void setResponsible_id(int responsible_id)
+    {
+        this.responsible_id = responsible_id;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public int getEmployee_id()
+    {
+        return employee_id;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployee_id(int employee_id)
+    {
+        this.employee_id = employee_id;
     }
 
     public Called() {
@@ -91,8 +95,8 @@ public class Called {
             json.put("motivo", this.motivo);
             json.put("priority", this.priority);
             json.put("status", this.status);
-            json.put("responsible_id", this.responsible.getId());
-            json.put("employee_id", this.employee.getId());
+            json.put("responsible_id", this.responsible_id);
+            json.put("employee_id", this.employee_id);
         }catch(JSONException e){
             json = null;
         }
@@ -105,8 +109,8 @@ public class Called {
             this.motivo = json.getString("motivo");
             this.priority = json.getString("priority");
             this.status = json.getString("status");
-            this.responsible = Responsible.findById(json.getInt("reponsible_id"));
-            this.employee = Employee.findById(json.getInt("employee_id"));
+            this.responsible_id = json.getInt("reponsible_id");
+            this.employee_id = json.getInt("employee_id");
         }catch(JSONException e){
             e.printStackTrace();
         }

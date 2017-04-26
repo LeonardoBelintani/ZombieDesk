@@ -9,7 +9,7 @@ public class Responsible {
     private String name;
     private char gender;
     private char time_work;
-    private User user;
+    private int user_id;
 
     public Responsible() {
     }
@@ -24,7 +24,7 @@ public class Responsible {
         this.name = name;
         this.gender = gender;
         this.time_work = time_work;
-        this.user = user;
+        this.user_id = user_id;
     }
 
     public int getId() {
@@ -59,12 +59,14 @@ public class Responsible {
         this.time_work = time_work;
     }
 
-    public User getUser() {
-        return user;
+    public int getUser_id()
+    {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(int user_id)
+    {
+        this.user_id = user_id;
     }
 
     public static Responsible findById(int id)
