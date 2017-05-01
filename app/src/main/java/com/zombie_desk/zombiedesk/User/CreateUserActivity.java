@@ -1,7 +1,6 @@
-package com.zombie_desk.zombiedesk;
+package com.zombie_desk.zombiedesk.User;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -14,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zombie_desk.zombiedesk.R;
+import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.model.User;
 
 import java.io.DataOutputStream;
@@ -32,9 +33,9 @@ public class CreateUserActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
-        txtLogin = (EditText) findViewById(R.id.txtLogin);
+        txtLogin = (EditText) findViewById(R.id.txtName);
         lblResult = (TextView) findViewById(R.id.lblResult);
-        txtPass = (EditText) findViewById(R.id.txtPass);
+        txtPass = (EditText) findViewById(R.id.txtGender);
     }
 
     public void cadastrarUsuario(View v)
@@ -49,7 +50,6 @@ public class CreateUserActivity extends Activity
     private class UploadToMyAPI extends AsyncTask<User, Void, String>
     {
         boolean isConnected = false;
-        ProgressDialog progress;
         int serverResponseCode;
         String serverResponseMessage;
 

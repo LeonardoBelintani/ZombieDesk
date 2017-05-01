@@ -12,7 +12,7 @@ import java.util.List;
 public class Called {
     private int id;
     private String locale;
-    private String motivo;
+    private String reason;
     private String priority;
     private String status;
     private int responsible_id;
@@ -41,9 +41,9 @@ public class Called {
     public Called() {
     }
 
-    public Called(String locale, String motivo, String priority, String status) {
+    public Called(String locale, String reason, String priority, String status) {
         this.locale = locale;
-        this.motivo = motivo;
+        this.reason = reason;
         this.priority = priority;
         this.status = status;
     }
@@ -64,12 +64,12 @@ public class Called {
         this.locale = locale;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public String getReason() {
+        return reason;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
     public String getPriority() {
@@ -92,7 +92,7 @@ public class Called {
         JSONObject json = new JSONObject();
         try {
             json.put("locale", this.locale);
-            json.put("motivo", this.motivo);
+            json.put("reason", this.reason);
             json.put("priority", this.priority);
             json.put("status", this.status);
             json.put("responsible_id", this.responsible_id);
@@ -106,7 +106,7 @@ public class Called {
     public void toCall(JSONObject json){
         try{
             this.locale = json.getString("locale");
-            this.motivo = json.getString("motivo");
+            this.reason = json.getString("reason");
             this.priority = json.getString("priority");
             this.status = json.getString("status");
             this.responsible_id = json.getInt("reponsible_id");

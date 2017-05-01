@@ -1,4 +1,4 @@
-package com.zombie_desk.zombiedesk;
+package com.zombie_desk.zombiedesk.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.zombie_desk.zombiedesk.R;
 import com.zombie_desk.zombiedesk.model.User;
 
 import java.util.List;

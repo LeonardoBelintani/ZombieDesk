@@ -35,4 +35,40 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnlistar"
         android:onClick="ListarUsuarios" />
+
+    <Button
+        android:id="@+id/btnListFuncio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LISTAR FUNCIONARIOS"
+        android:onClick="ListarFuncionarios"
+        android:layout_below="@+id/btnListCall"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnListCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnListDepartment"
+        android:onClick="ListarChamados"
+        android:text="LISTAR CHAMADOS" />
+
+    <Button
+        android:id="@+id/btnListDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnListRole"
+        android:onClick="ListarDepartamentos"
+        android:text="LISTAR DEPARTAMENTOS" />
+
+    <Button
+        android:id="@+id/btnListRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnlistar"
+        android:onClick="ListarRoles"
+        android:text="LISTAR ROLES" />
 </RelativeLayout>

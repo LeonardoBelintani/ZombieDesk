@@ -11,7 +11,7 @@
               android:paddingTop="@dimen/activity_vertical_margin"
               android:orientation="vertical"
               app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:context="com.zombie_desk.zombiedesk.ListUserActivity"
+              tools:context="com.zombie_desk.zombiedesk.User.ListUserActivity"
               tools:showIn="@layout/activity_list_user">
 
     <ListView

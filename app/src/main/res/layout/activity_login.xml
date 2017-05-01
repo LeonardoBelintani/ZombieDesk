@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.zombie_desk.zombiedesk.LoginActivity">
+    tools:context="com.zombie_desk.zombiedesk.Login.LoginActivity">
 
     <EditText
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="11dp"
         android:layout_marginTop="36dp"
-        android:id="@+id/txtLogin" />
+        android:id="@+id/txtName" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:ems="10"
         android:layout_marginTop="54dp"
         android:id="@+id/txtPassword"
-        android:layout_below="@+id/txtLogin"
+        android:layout_below="@+id/txtName"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/txtLogin"
+        android:layout_alignStart="@+id/txtName"
         android:id="@+id/btnAcess"
         android:onClick="acessar" />
 
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/txtLogin"
+        android:layout_alignStart="@+id/txtName"
         android:layout_marginStart="124dp"
         android:id="@+id/lbl" />
 

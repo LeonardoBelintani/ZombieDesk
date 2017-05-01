@@ -1,4 +1,4 @@
-package com.zombie_desk.zombiedesk;
+package com.zombie_desk.zombiedesk.Login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.zombie_desk.zombiedesk.R;
+import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.dao.WebService;
 import com.zombie_desk.zombiedesk.model.User;
 
@@ -25,7 +27,7 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        this.txtLogin = (EditText) findViewById(R.id.txtLogin);
+        this.txtLogin = (EditText) findViewById(R.id.txtName);
         this.txtPassword = (EditText) findViewById(R.id.txtPassword);
         this.lblResult = (TextView) findViewById(R.id.lblResult);
     }
