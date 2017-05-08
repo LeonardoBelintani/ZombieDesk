@@ -2,16 +2,25 @@ package com.zombie_desk.zombiedesk;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 
 import com.zombie_desk.zombiedesk.Called.ListCalledActivity;
 import com.zombie_desk.zombiedesk.Department.ListDepartmentActivity;
 import com.zombie_desk.zombiedesk.Employee.ListEmployeeActivity;
+import com.zombie_desk.zombiedesk.Facebook.LoginFacebookActivity;
 import com.zombie_desk.zombiedesk.Login.LoginActivity;
 import com.zombie_desk.zombiedesk.Role.ListRoleActivity;
 import com.zombie_desk.zombiedesk.User.CreateUserActivity;
 import com.zombie_desk.zombiedesk.User.ListUserActivity;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 public class MainActivity extends Activity
@@ -58,6 +67,11 @@ public class MainActivity extends Activity
     public void ListarChamados(View v)
     {
         Intent intent = new Intent(this, ListCalledActivity.class);
+        startActivity(intent);
+    }
+    public void LogarFacebook(View v)
+    {
+        Intent intent = new Intent(this, LoginFacebookActivity.class);
         startActivity(intent);
     }
 }
