@@ -20,6 +20,10 @@ import com.zombie_desk.zombiedesk.model.Employee;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.Exchanger;
 
 public class CreateEmployeeActivity extends Activity
 {
@@ -40,13 +44,18 @@ public class CreateEmployeeActivity extends Activity
     }
     public void cadastrarEmployee(View v)
     {
-        Employee employee = new Employee();
-        employee.setName(txtName.getText().toString());
-        employee.setGender(txtGender.getText().toString());
-        // conversao de data em string
-        //employee.setBirth(txtBirth.getText().toString());
-        new UploadToMyAPI().execute(employee);
-
+        try
+        {
+            Employee employee = new Employee();
+            employee.setName(txtName.getText().toString());
+            employee.setGender(txtGender.getText().toString());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            employee.setBirth(sdf.parse(txtBirth.getText().toString()));
+            new UploadToMyAPI().execute(employee);
+        }catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private class UploadToMyAPI extends AsyncTask<Employee, Void, String>

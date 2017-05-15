@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -75,12 +76,33 @@ public class ListEmployeeActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            List<Employee> employees = Util.convertJSONtoEmployee(s);
+            final List<Employee> employees = Util.convertJSONtoEmployee(s);
             if(employees != null){
                 ArrayAdapter<Employee> employeeAdapter = new EmployeeAdapter(ListEmployeeActivity.this,R.layout.employee_item,employees);
-                ListView listEmployees = (ListView) findViewById(R.id.listEmployees);
+                final ListView listEmployees = (ListView) findViewById(R.id.listEmployees);
                 listEmployees.setAdapter(employeeAdapter);
+                listEmployees.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                    {
+                        Employee employee = employees.get(position);
+                        Intent intent = new Intent(ListEmployeeActivity.this, EmployeeUpdateActivity.class);
+                        intent.putExtra("employee_id", employee);
+                        startActivity(intent);
+                    }
+                });
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

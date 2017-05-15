@@ -3,13 +3,15 @@ package com.zombie_desk.zombiedesk.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Lab. Desenvolvimento on 23/03/2017.
  */
 
-public class User {
+public class User implements Serializable
+{
 
     private int id;
     private String username;

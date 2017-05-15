@@ -71,4 +71,22 @@
         android:layout_below="@+id/btnlistar"
         android:onClick="ListarRoles"
         android:text="LISTAR ROLES" />
+
+    <Button
+        android:id="@+id/btnLogarFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:onClick="LogarFacebook"
+        android:text="LOGAR COM FACEBOOK" />
+
+    <Button
+        android:id="@+id/btnListarUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="ListarUsuarios"
+        android:text="LISTAR USUÁRIOS"
+        android:layout_below="@+id/btnListFuncio"
+        android:layout_alignParentStart="true"/>
+
 </RelativeLayout>

@@ -26,4 +26,17 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string-array name="clerklist">
+        <item>Leonardo Belintani</item>
+        <item>Alex Galante</item>
+    </string-array>
+    <string-array name="employeelist">
+        <item>employee a</item>
+        <item>employee b</item>
+        <item>employee c</item>
+        <item>employee d</item>
+    </string-array>
+
+    <string name="facebook_app_id">263720414092207</string>
 </resources>

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -80,11 +81,22 @@ public class ListUserActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            List<User> users = Util.convertJSONtoUser(s);
+            final List<User> users = Util.convertJSONtoUser(s);
             if(users != null){
                 ArrayAdapter<User> userAdapter = new UserAdapter(ListUserActivity.this,R.layout.user_item,users);
-                ListView listaUser = (ListView) findViewById(R.id.listUsers);
-                listaUser.setAdapter(userAdapter);
+                final ListView listUser = (ListView) findViewById(R.id.listUsers);
+                listUser.setAdapter(userAdapter);
+                listUser.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                    {
+                        User user = users.get(position);
+                        Intent intent = new Intent(ListUserActivity.this, UpdateUserActivity.class);
+                        intent.putExtra("user_id", user);
+                        startActivity(intent);
+                    }
+                });
             }
         }
     }

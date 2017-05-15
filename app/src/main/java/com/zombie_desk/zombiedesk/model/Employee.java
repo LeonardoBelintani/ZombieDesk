@@ -1,12 +1,17 @@
 package com.zombie_desk.zombiedesk.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Lab. Desenvolvimento on 23/03/2017.
  */
 
-public class Employee {
+public class Employee implements Serializable
+{
     private int id;
     private String name;
     private String gender;

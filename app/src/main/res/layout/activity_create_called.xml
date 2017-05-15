@@ -28,8 +28,9 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Type location"
-        android:layout_above="@+id/txtReason"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/spinner2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"/>
 
     <EditText
         android:id="@+id/txtReason"
@@ -39,8 +40,9 @@
         android:fontFamily="sans-serif"
         android:hint="Type reason"
         android:inputType="textPassword"
-        android:layout_above="@+id/txtPriority"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/txtLocation"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp"/>
     <EditText
         android:id="@+id/txtPriority"
         android:layout_width="match_parent"
@@ -48,8 +50,9 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Type priority"
-        android:layout_above="@+id/txtStatus"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/txtReason"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp"/>
     <EditText
         android:id="@+id/txtStatus"
         android:layout_width="match_parent"
@@ -57,9 +60,9 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Type status"
-        android:layout_above="@+id/btnSave"
+        android:layout_below="@+id/txtPriority"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="37dp" />
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:text="Save"
@@ -67,26 +70,45 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnSave"
         android:onClick="cadastrarChamado"
-        android:layout_alignBaseline="@+id/btnReturn"
-        android:layout_alignBottom="@+id/btnReturn"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnReturn"
-        android:layout_above="@+id/lblResult"
         android:onClick="cadastrarCall"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lblResult"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnSave"
+        android:layout_alignParentStart="true"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="130dp" />
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="56dp"
+        android:entries="@array/clerklist"
+        />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentStart="true"
+        android:entries="@array/employeelist"
+        />
 
 
 </RelativeLayout>

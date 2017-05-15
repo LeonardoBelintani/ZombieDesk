@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -38,6 +39,7 @@ public class ListCalledActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         loadCalls();
+
     }
     public void loadCalls(){
         new DownloadFromMyAPI().execute();
@@ -75,11 +77,22 @@ public class ListCalledActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            List<Called> calls = Util.convertJSONtoCalled(s);
+            final List<Called> calls = Util.convertJSONtoCalled(s);
             if(calls != null){
                 ArrayAdapter<Called> calledAdapter = new CalledAdapter(ListCalledActivity.this,R.layout.called_item,calls);
-                ListView listCalls = (ListView) findViewById(R.id.listCalls);
+                final ListView listCalls = (ListView) findViewById(R.id.listCalls);
                 listCalls.setAdapter(calledAdapter);
+                listCalls.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                    {
+                        Called call = calls.get(position);
+                        Intent intent = new Intent(ListCalledActivity.this, CallUpdateActivity.class);
+                        intent.putExtra("call_id", call);
+                        startActivity(intent);
+                    }
+                });
             }
         }
     }
