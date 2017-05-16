@@ -51,6 +51,9 @@
             android:name=".Employee.CreateEmployeeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
+            android:name=".Employee.EmployeeUpdateActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".Employee.ListEmployeeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Role.ListRoleActivity"/>

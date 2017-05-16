@@ -40,12 +40,16 @@ public class EmployeeAdapter extends ArrayAdapter<Employee> {
         if (employee != null) {
             TextView textNome = (TextView) localView.findViewById(R.id.textNome);
             TextView textGender = (TextView) localView.findViewById(R.id.textGender);
+            TextView textId = (TextView) localView.findViewById(R.id.textId);
 
             if (textNome != null) {
                 textNome.setText(String.valueOf(employee.getName()));
             }
             if (textGender != null) {
                 textGender.setText(employee.getGender());
+            }
+            if (textId != null) {
+                textGender.setText(String.valueOf(employee.getId()));
             }
         }
         return localView;

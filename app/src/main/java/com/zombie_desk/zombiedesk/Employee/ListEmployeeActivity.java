@@ -78,10 +78,10 @@ public class ListEmployeeActivity extends AppCompatActivity
             super.onPostExecute(s);
             final List<Employee> employees = Util.convertJSONtoEmployee(s);
             if(employees != null){
-                ArrayAdapter<Employee> employeeAdapter = new EmployeeAdapter(ListEmployeeActivity.this,R.layout.employee_item,employees);
-                final ListView listEmployees = (ListView) findViewById(R.id.listEmployees);
-                listEmployees.setAdapter(employeeAdapter);
-                listEmployees.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                ArrayAdapter<Employee> employeeAdapter = new EmployeeAdapter(ListEmployeeActivity.this,R.layout.employee_item, employees);
+                final ListView listEmployee = (ListView) findViewById(R.id.listEmployees);
+                listEmployee.setAdapter(employeeAdapter);
+                listEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener()
                 {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id)

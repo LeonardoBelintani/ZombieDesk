@@ -74,8 +74,10 @@ public class Util
                 JSONObject localObj = mainObject.getJSONObject(i);
                 String username = localObj.getString("username");
                 String password = localObj.getString("password");
+                Integer id = localObj.getInt("id");
                 novoUser.setUsername(username);
                 novoUser.setPassword(password);
+                novoUser.setId(id);
                 users.add(novoUser);
             }
 
@@ -125,20 +127,12 @@ public class Util
             {
                 Employee newemployee = new Employee();
                 JSONObject localObj = mainObject.getJSONObject(i);
-                //int user_id = localObj.getInt("user_id");
-                //int role_id = localObj.getInt("role_id");
-                //int department_id = localObj.getInt("department_id");
                 String name = localObj.getString("name");
                 String gender = localObj.getString("gender");
-
-                //Date birth = localObj.getString("birth");
-                // verificar conversao de data para string
-                //newemployee.setUser_id(user_id);
-                //newemployee.setRole_id(role_id);
-                //newemployee.setDepartment_id(department_id);
+                Integer id = localObj.getInt("id");
                 newemployee.setName(name);
                 newemployee.setGender(gender);
-                //newemployee.setBirth(birth);
+                newemployee.setId(id);
                 employees.add(newemployee);
             }
 

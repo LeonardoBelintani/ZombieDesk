@@ -41,12 +41,16 @@ public class UserAdapter extends ArrayAdapter<User>
         if(user != null){
             TextView textUsername = (TextView) localView.findViewById(R.id.textUsername);
             TextView textPassword = (TextView) localView.findViewById(R.id.textPassword);
+            TextView textId = (TextView) localView.findViewById(R.id.textId);
 
             if(textUsername != null){
                 textUsername.setText(String.valueOf(user.getUsername()));
             }
             if(textPassword != null){
                 textPassword.setText(user.getPassword());
+            }
+            if(textId != null){
+                textPassword.setText(String.valueOf(user.getId()));
             }
         }
         return localView;
