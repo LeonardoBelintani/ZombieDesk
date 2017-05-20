@@ -74,4 +74,9 @@ public class MainActivity extends Activity
         Intent intent = new Intent(this, LoginFacebookActivity.class);
         startActivity(intent);
     }
+    public void IntentInterna(View v)
+    {
+        Intent intent = new Intent(this, InternalActionsActivity.class);
+        startActivity(intent);
+    }
 }
