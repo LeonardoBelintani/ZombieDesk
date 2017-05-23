@@ -20,7 +20,6 @@ public class LoginActivity extends Activity {
     EditText txtLogin;
     EditText txtPassword;
     TextView lblResult;
-    Intent intent;
     User user;
 
     @Override

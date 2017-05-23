@@ -34,6 +34,12 @@ public class Employee implements Serializable
         this.department_id = department_id;
     }
 
+    @Override
+    public String toString()
+    {
+        return this.name;
+    }
+
     public int getId()
     {
         return id;

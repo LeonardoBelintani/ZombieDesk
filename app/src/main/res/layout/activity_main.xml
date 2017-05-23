@@ -15,33 +15,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnHome"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="40dp"
-        android:onClick="login" />
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:text="CREATE USER"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnHome"
         android:id="@+id/btnCreateUser"
-        android:layout_alignParentStart="true"
-        android:onClick="createUser" />
+        android:onClick="onClick"
+        android:layout_above="@+id/btnHome"
+        android:layout_alignParentStart="true"/>
 
     <Button
-        android:text="listar usuarios"
+        android:text="INICIO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnlistar"
-        android:onClick="ListarUsuarios" />
+        android:id="@+id/btnInicio"
+        android:onClick="onClick"
+        android:layout_below="@+id/btnLogarFacebook"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:id="@+id/btnListFuncio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LISTAR FUNCIONARIOS"
-        android:onClick="ListarFuncionarios"
+        android:onClick="onClick"
         android:layout_below="@+id/btnListCall"
         android:layout_alignParentStart="true" />
 
@@ -51,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnListDepartment"
-        android:onClick="ListarChamados"
+        android:onClick="onClick"
         android:text="LISTAR CHAMADOS" />
 
     <Button
@@ -60,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnListRole"
-        android:onClick="ListarDepartamentos"
+        android:onClick="onClick"
         android:text="LISTAR DEPARTAMENTOS" />
 
     <Button
@@ -68,23 +69,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnlistar"
-        android:onClick="ListarRoles"
+        android:onClick="onClick"
         android:text="LISTAR ROLES" />
 
     <Button
         android:id="@+id/btnLogarFacebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="LOGAR COM FACEBOOK"
+        android:layout_below="@+id/btnAnimation"
         android:layout_alignParentStart="true"
-        android:onClick="LogarFacebook"
-        android:text="LOGAR COM FACEBOOK" />
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/btnListarUsuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="ListarUsuarios"
+        android:onClick="onClick"
         android:text="LISTAR USUÁRIOS"
         android:layout_below="@+id/btnListFuncio"
         android:layout_alignParentStart="true"/>
@@ -95,7 +97,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnListarUsuarios"
         android:layout_centerHorizontal="true"
-        android:onClick="IntentInterna"
+        android:onClick="onClick"
         android:text="Intent interna"/>
+
+    <Button
+        android:id="@+id/btnAnimationProperty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnInternal"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"
+        android:text="ANIMAÇÃO DAS PROPRIEDADES"/>
+
+    <Button
+        android:id="@+id/btnAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="ANIMAÇÃO"
+        android:layout_below="@+id/btnAnimationProperty"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

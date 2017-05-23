@@ -9,13 +9,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zombie_desk.zombiedesk.Adapters.UserAdapter;
 import com.zombie_desk.zombiedesk.R;
+import com.zombie_desk.zombiedesk.User.ListUserActivity;
 import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.model.Employee;
+import com.zombie_desk.zombiedesk.model.User;
 
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
@@ -23,6 +28,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.Exchanger;
 
 public class CreateEmployeeActivity extends Activity
@@ -31,6 +37,7 @@ public class CreateEmployeeActivity extends Activity
     EditText txtGender;
     TextView lblResult;
     EditText txtBirth;
+    ArrayAdapter <User> userArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

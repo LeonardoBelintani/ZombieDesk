@@ -1,5 +1,15 @@
 package com.zombie_desk.zombiedesk.Util;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.os.Environment;
+
 import com.zombie_desk.zombiedesk.model.Called;
 import com.zombie_desk.zombiedesk.model.Department;
 import com.zombie_desk.zombiedesk.model.Employee;
@@ -11,16 +21,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.net.URI;
+import java.security.PublicKey;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static android.R.attr.bitmap;
+import static android.R.attr.breadCrumbShortTitle;
 import static android.R.attr.format;
+import static android.R.attr.mediaRouteButtonStyle;
 import static android.R.attr.name;
 import static android.R.attr.process;
 

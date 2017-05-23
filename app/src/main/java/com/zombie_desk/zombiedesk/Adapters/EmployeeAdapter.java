@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.zombie_desk.zombiedesk.R;
@@ -16,7 +17,8 @@ import java.util.List;
  * Created by admin on 30/04/2017.
  */
 
-public class EmployeeAdapter extends ArrayAdapter<Employee> {
+public class EmployeeAdapter extends ArrayAdapter<Employee>
+{
     private List<Employee> employees;
     private int layout;
 
@@ -40,16 +42,16 @@ public class EmployeeAdapter extends ArrayAdapter<Employee> {
         if (employee != null) {
             TextView textNome = (TextView) localView.findViewById(R.id.textNome);
             TextView textGender = (TextView) localView.findViewById(R.id.textGender);
-            TextView textId = (TextView) localView.findViewById(R.id.textId);
+            TextView textId = (TextView) localView.findViewById(R.id.textID);
 
             if (textNome != null) {
-                textNome.setText(String.valueOf(employee.getName()));
+                textNome.setText(employee.getName());
             }
             if (textGender != null) {
                 textGender.setText(employee.getGender());
             }
             if (textId != null) {
-                textGender.setText(String.valueOf(employee.getId()));
+                textId.setText(String.valueOf(employee.getId()));
             }
         }
         return localView;

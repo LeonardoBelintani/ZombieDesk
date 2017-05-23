@@ -127,5 +127,9 @@ public class CreateUserActivity extends Activity
             }
         }
     }
-
+    public void back(View v)
+    {
+        Intent intent = new Intent(this, ListUserActivity.class);
+        startActivity(intent);
+    }
 }

@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -14,7 +17,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/bazinga"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -40,10 +43,6 @@
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
         <activity
             android:name=".User.ListUserActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -58,7 +57,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Role.ListRoleActivity"/>
         <activity android:name=".Department.ListDepartmentActivity"/>
-        <activity android:name=".Called.ListCalledActivity"/>
+        <activity
+            android:name=".Called.ListCalledActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Called.CreateCalledActivity"/>
         <activity android:name=".Facebook.LoginFacebookActivity">
         </activity>
@@ -72,6 +73,12 @@
         <activity android:name=".Called.CallUpdateActivity">
         </activity>
         <activity android:name=".User.UpdateUserActivity">
+        </activity>
+        <activity android:name=".AnimationActivity">
+        </activity>
+        <activity android:name=".AnimationPropertyActivity">
+        </activity>
+        <activity android:name=".InicioActivity">
         </activity>
     </application>
 

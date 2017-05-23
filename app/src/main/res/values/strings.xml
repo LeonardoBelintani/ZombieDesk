@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZombieDesk</string>
+    <string name="app_name">Zombie Desk - O maior e melhor</string>
     <string name="ErrorIntent">Action not supported</string>
     <string-array name="actions">
         <item>Browser</item>
@@ -39,4 +39,27 @@
     </string-array>
 
     <string name="facebook_app_id">263720414092207</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="animation">
+        <item>Transparencia</item>
+        <item>Rotação</item>
+        <item>Aumentar tamanho</item>
+        <item>Mudar posicao</item>
+        <item>Todas ao mesmo tempo</item>
+    </string-array>
+
+    <string-array name="interpolators">
+        <item>Interpolador Acelerar/desacelerar</item>
+        <item>Interpolador Acelerar</item>
+        <item>Interpolador Antecipar</item>
+        <item>Interpolador Antecipar Overshoot</item>
+        <item>Interpolador Ressaltar</item>
+        <item>Interpolador Circular</item>
+        <item>Interpolador Desacelerar</item>
+        <item>Interpolador Linear</item>
+        <item>OvershootInterpolator</item>
+    </string-array>
 </resources>

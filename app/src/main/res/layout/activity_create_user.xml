@@ -60,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/btnSave"
         android:layout_alignParentEnd="true"
+        android:onClick="back"
         android:id="@+id/btnReturn" />
 
     <TextView

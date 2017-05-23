@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.zombie_desk.zombiedesk.Adapters.UserAdapter;
+import com.zombie_desk.zombiedesk.Called.CreateCalledActivity;
 import com.zombie_desk.zombiedesk.R;
 import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.model.User;
@@ -97,6 +98,9 @@ public class ListUserActivity extends AppCompatActivity
                         startActivity(intent);
                     }
                 });
+//                Intent intent = new Intent(ListUserActivity.this, CreateCalledActivity.class);
+//                intent.putExtra("list_users", users);
+//                startActivity(intent);
             }
         }
     }

@@ -10,6 +10,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
+import com.zombie_desk.zombiedesk.Called.CreateCalledActivity;
 import com.zombie_desk.zombiedesk.Called.ListCalledActivity;
 import com.zombie_desk.zombiedesk.Department.ListDepartmentActivity;
 import com.zombie_desk.zombiedesk.Employee.ListEmployeeActivity;
@@ -32,51 +33,59 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
     }
 
-    public void login(View v)
-    {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
 
-    public void createUser(View v)
+    public void onClick(View v)
     {
-        Intent intent = new Intent(this, CreateUserActivity.class);
-        startActivity(intent);
-    }
-
-    public void ListarUsuarios(View v)
-    {
-        Intent intent = new Intent(this, ListUserActivity.class);
-        startActivity(intent);
-    }
-    public void ListarFuncionarios(View v)
-    {
-        Intent intent = new Intent(this, ListEmployeeActivity.class);
-        startActivity(intent);
-    }
-    public void ListarRoles(View v)
-    {
-        Intent intent = new Intent(this, ListRoleActivity.class);
-        startActivity(intent);
-    }
-    public void ListarDepartamentos(View v)
-    {
-        Intent intent = new Intent(this, ListDepartmentActivity.class);
-        startActivity(intent);
-    }
-    public void ListarChamados(View v)
-    {
-        Intent intent = new Intent(this, ListCalledActivity.class);
-        startActivity(intent);
-    }
-    public void LogarFacebook(View v)
-    {
-        Intent intent = new Intent(this, LoginFacebookActivity.class);
-        startActivity(intent);
-    }
-    public void IntentInterna(View v)
-    {
-        Intent intent = new Intent(this, InternalActionsActivity.class);
-        startActivity(intent);
+        switch (v.getId())
+        {
+            case R.id.btnHome:
+                Intent intentHome = new Intent(this, LoginActivity.class);
+                startActivity(intentHome);
+                break;
+            case R.id.btnCreateUser:
+                Intent intentCreateUser = new Intent(this, CreateUserActivity.class);
+                startActivity(intentCreateUser);
+                break;
+            case R.id.btnListarUsuarios:
+                Intent intentListUser = new Intent(this, ListUserActivity.class);
+                startActivity(intentListUser);
+                break;
+            case R.id.btnListFuncio:
+                Intent intentListEmployee = new Intent(this, ListEmployeeActivity.class);
+                startActivity(intentListEmployee);
+                break;
+            case R.id.btnListRole:
+                Intent intentListRole = new Intent(this, ListRoleActivity.class);
+                startActivity(intentListRole);
+                break;
+            case R.id.btnListDepartment:
+                Intent intentListDepart = new Intent(this, ListDepartmentActivity.class);
+                startActivity(intentListDepart);
+                break;
+            case R.id.btnListCall:
+                Intent intentListCall = new Intent(this, CreateCalledActivity.class);
+                startActivity(intentListCall);
+                break;
+            case R.id.btnLogarFacebook:
+                Intent intentFace = new Intent(this, LoginFacebookActivity.class);
+                startActivity(intentFace);
+                break;
+            case R.id.btnInternal:
+                Intent intentInterna = new Intent(this, InternalActionsActivity.class);
+                startActivity(intentInterna);
+                break;
+            case R.id.btnAnimationProperty:
+                Intent intentAnimationProperty = new Intent(this, AnimationPropertyActivity.class);
+                startActivity(intentAnimationProperty);
+                break;
+            case R.id.btnAnimation:
+                Intent intentAnimation = new Intent(this, AnimationActivity.class);
+                startActivity(intentAnimation);
+                break;
+            case R.id.btnInicio:
+                Intent intentInicio = new Intent(this, InicioActivity.class);
+                startActivity(intentInicio);
+                break;
+        }
     }
 }
