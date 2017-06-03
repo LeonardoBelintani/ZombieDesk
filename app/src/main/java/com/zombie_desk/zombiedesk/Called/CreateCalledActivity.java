@@ -36,7 +36,8 @@ public class CreateCalledActivity extends Activity
     EditText txtPriority;
     EditText txtStatus;
     TextView lblResult;
-    Spinner spinner2;
+    Spinner spinnerResponsible;
+    Spinner spinnerEmployee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,7 +49,8 @@ public class CreateCalledActivity extends Activity
         txtPriority = (EditText) findViewById(R.id.txtPriority);
         txtStatus = (EditText) findViewById(R.id.txtStatus);
         lblResult = (TextView) findViewById(R.id.lblResult);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinnerResponsible = (Spinner) findViewById(R.id.spinnerResponsible);
+        spinnerEmployee = (Spinner) findViewById(R.id.spinnerEmployee);
         loadCalls();
     }
 
@@ -59,9 +61,12 @@ public class CreateCalledActivity extends Activity
         called.setReason(txtReason.getText().toString());
         called.setPriority(txtPriority.getText().toString());
         called.setStatus(txtStatus.getText().toString());
+        Long idEmployee = spinnerEmployee.getSelectedItemId();
+        Long idResponsible = spinnerResponsible.getSelectedItemId();
+        called.setEmployee_id(idEmployee.intValue());
+        called.setResponsible_id(idResponsible.intValue());
 
         new UploadToMyAPI().execute(called);
-
     }
 
     boolean isConnected = false;
@@ -131,15 +136,22 @@ public class CreateCalledActivity extends Activity
             super.onPostExecute(s);
             if (isConnected)
             {
-                if (Util.getStatusFromJSON(serverResponseMessage).equals("1"))
+                try
                 {
-//                    List<Employee> employees = Util.convertJSONtoEmployee(s);
-//                    EmployeeAdapter employeeAdapter = new EmployeeAdapter(getApplicationContext(), R.layout.employee_item, employees);
-//                    spinner2.setAdapter(employeeAdapter);
+                    Intent listCalls;
 
-                } else
+                    if (serverResponseMessage.equals("1"))
+                    {
+                        Toast.makeText(CreateCalledActivity.this, "Chamado registrado no Sistema!", Toast.LENGTH_SHORT).show();
+                        listCalls = new Intent(CreateCalledActivity.this, ListCalledActivity.class);
+                        startActivity(listCalls);
+                    } else
+                    {
+                        Toast.makeText(CreateCalledActivity.this, "Falha ao abrir o chamado. Tente novamente", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e)
                 {
-                    Toast.makeText(CreateCalledActivity.this, "Falha ao abrir o chamado. Tente novamente", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
             }
         }
@@ -214,7 +226,7 @@ public class CreateCalledActivity extends Activity
                 List<Employee> employees = Util.convertJSONtoEmployee(s);
                 EmployeeAdapter employeeAdapter = new EmployeeAdapter(CreateCalledActivity.this, R.layout.employee_item, employees);
                 employeeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner2.setAdapter(employeeAdapter);
+                spinnerEmployee.setAdapter(employeeAdapter);
 
             }
         }
