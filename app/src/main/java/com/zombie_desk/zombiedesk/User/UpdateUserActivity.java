@@ -25,6 +25,7 @@ public class UpdateUserActivity extends AppCompatActivity
     EditText editUser;
     EditText editPass;
     EditText editId;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,20 +36,22 @@ public class UpdateUserActivity extends AppCompatActivity
         editUser = (EditText) findViewById(R.id.editUsername);
         editPass = (EditText) findViewById(R.id.editPass);
         editId = (EditText) findViewById(R.id.editId);
+        editId.setEnabled(false);
+
+        Intent intent = getIntent();
+        user = (User) intent.getSerializableExtra("user_id");
+
+        editUser.setText(user.getUsername());
+        editPass.setText(user.getPassword());
+        editId.setText(String.valueOf(user.getId()));
     }
 
     public void updateUser(View v){
         try{
-            Intent intent = getIntent();
-            User user = (User) intent.getSerializableExtra("user_id");
-
-            editUser.setText(user.getUsername());
-            editPass.setText(user.getPassword());
-            editId.setText(String.valueOf(user.getId()));
-
-            user = new User();
+            User user = new User();
             user.setUsername(editUser.getText().toString());
             user.setPassword(editPass.getText().toString());
+            user.setId(Integer.parseInt(editId.getText().toString()));
             new UploadToMyAPI().execute(user);
 
         }catch (Exception e)
@@ -124,7 +127,7 @@ public class UpdateUserActivity extends AppCompatActivity
             if (isConnected)
             {
                 Intent listEmployee;
-                if (Util.getStatusFromJSON(serverResponseMessage).equals("1"))
+                if (serverResponseMessage.equals(""))
                 {
                     Toast.makeText(UpdateUserActivity.this, "Usuário alterado com sucesso!", Toast.LENGTH_SHORT).show();
                     listEmployee = new Intent(UpdateUserActivity.this, ListUserActivity.class);
@@ -136,7 +139,4 @@ public class UpdateUserActivity extends AppCompatActivity
             }
         }
     }
-
-
-
 }

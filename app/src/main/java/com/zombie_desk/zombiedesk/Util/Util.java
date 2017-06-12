@@ -111,6 +111,23 @@ public class Util
         JSONObject mainObject = new JSONObject();
         try
         {
+            mainObject.put("id", user.getId());
+            mainObject.put("username", user.getUsername());
+            mainObject.put("password", user.getPassword());
+
+            return mainObject.toString();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String convertUsertoJSONLogin(User user)
+    {
+        JSONObject mainObject = new JSONObject();
+        try
+        {
             mainObject.put("username", user.getUsername());
             mainObject.put("password", user.getPassword());
 
@@ -143,15 +160,23 @@ public class Util
 
             for (int i = 0; i < mainObject.length(); i++)
             {
-                Employee newemployee = new Employee();
+                Employee newEmployee = new Employee();
                 JSONObject localObj = mainObject.getJSONObject(i);
                 String name = localObj.getString("name");
                 String gender = localObj.getString("gender");
                 Integer id = localObj.getInt("id");
-                newemployee.setName(name);
-                newemployee.setGender(gender);
-                newemployee.setId(id);
-                employees.add(newemployee);
+                Integer user_id = localObj.getInt("user_id");
+                Integer role_id = localObj.getInt("role_id");
+                Integer department_id = localObj.getInt("department_id");
+
+                newEmployee.setName(name);
+                newEmployee.setGender(gender);
+                newEmployee.setId(id);
+                newEmployee.setUser_id(user_id);
+                newEmployee.setRole_id(role_id);
+                newEmployee.setDepartment_id(department_id);
+
+                employees.add(newEmployee);
             }
 
         } catch (JSONException e)
@@ -171,7 +196,26 @@ public class Util
             mainObject.put("department_id", employee.getDepartment_id());
             mainObject.put("name", employee.getName());
             mainObject.put("gender", employee.getGender());
-            mainObject.put("birth", employee.getBirth());
+
+            return mainObject.toString();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String convertEmployeetoJSONAlter(Employee employee)
+    {
+        JSONObject mainObject = new JSONObject();
+        try
+        {
+            mainObject.put("user_id", employee.getUser_id());
+            mainObject.put("role_id", employee.getRole_id());
+            mainObject.put("department_id", employee.getDepartment_id());
+            mainObject.put("name", employee.getName());
+            mainObject.put("gender", employee.getGender());
+            mainObject.put("id", employee.getId());
 
             return mainObject.toString();
         } catch (JSONException e)
@@ -246,10 +290,12 @@ public class Util
                 String location = localObj.getString("location");
                 String priority = localObj.getString("priority");
                 String status = localObj.getString("status");
+                String reason = localObj.getString("reason");
                 newCall.setId(id);
                 newCall.setLocale(location);
                 newCall.setPriority(priority);
                 newCall.setStatus(status);
+                newCall.setReason(reason);
                 calls.add(newCall);
             }
         } catch (JSONException e)
@@ -261,12 +307,13 @@ public class Util
 
     public static String convertCalledtoJSON(Called called)
     {
-        //TODO verificar parametros da query do create
         JSONObject mainObject = new JSONObject();
         try
         {
-            mainObject.put("id", called.getId());
+            mainObject.put("clerk_id", called.getResponsible_id());
+            mainObject.put("employee_id", called.getEmployee_id());
             mainObject.put("location", called.getLocale());
+            mainObject.put("reason", called.getReason());
             mainObject.put("priority", called.getPriority());
             mainObject.put("status", called.getStatus());
 

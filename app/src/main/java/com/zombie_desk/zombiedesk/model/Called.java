@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Lab. Desenvolvimento on 27/03/2017.
+ * Created by Lab. Leonardo Belintani on 27/03/2017.
  */
 
 public class Called implements Serializable

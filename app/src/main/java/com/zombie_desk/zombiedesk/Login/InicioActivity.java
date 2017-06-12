@@ -1,4 +1,4 @@
-package com.zombie_desk.zombiedesk;
+package com.zombie_desk.zombiedesk.Login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +16,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.zombie_desk.zombiedesk.User.ListUserActivity;
+import com.zombie_desk.zombiedesk.MainActivity;
+import com.zombie_desk.zombiedesk.R;
 import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.dao.WebService;
 import com.zombie_desk.zombiedesk.model.User;
@@ -54,7 +55,6 @@ public class InicioActivity extends Activity
 
             @Override
             public void onCancel() {
-
             }
 
             @Override
@@ -75,16 +75,15 @@ public class InicioActivity extends Activity
     }
 
     private void redirect(String ID){
-        Intent intent = new Intent(InicioActivity.this,ListUserActivity.class);
+        Intent intent = new Intent(InicioActivity.this,MainActivity.class);
         intent.putExtra("FB_ID",ID);
         startActivity(intent);
     }
 
-    public void acessar(View v) {
+    public void Inicio_acessar(View v) {
         try {
             this.user = new User(String.valueOf(this.txtPassword.getText()), String.valueOf(this.txtLogin.getText()));
             new UserAcess().execute(user);
-            User copy = user;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,7 +96,6 @@ public class InicioActivity extends Activity
         protected String doInBackground(User... params){
             try {
                 HttpURLConnection connection;
-                //TODO QUAL A URL DE ACESSO?
                 URL url = new URL(WebService.urlUserAcess(user));
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setReadTimeout(10000);
@@ -122,8 +120,7 @@ public class InicioActivity extends Activity
             } else {
                 //Preenche o objeto atual
                 user.fillUser(jSon);
-                lblResult.setText("Funcionou");
-                Intent intent = new Intent(InicioActivity.this,ListUserActivity.class);
+                Intent intent = new Intent(InicioActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         }

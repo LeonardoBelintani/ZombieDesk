@@ -18,6 +18,7 @@ import com.zombie_desk.zombiedesk.model.Called;
 import com.zombie_desk.zombiedesk.model.Employee;
 
 import java.io.DataOutputStream;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -30,6 +31,10 @@ public class EmployeeUpdateActivity extends AppCompatActivity
     EditText editNome;
     EditText editGenero;
     EditText editID;
+    EditText editUser;
+    EditText editRole;
+    EditText editDepartment;
+    Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -39,20 +44,31 @@ public class EmployeeUpdateActivity extends AppCompatActivity
         editNome = (EditText) findViewById(R.id.editNome);
         editGenero = (EditText) findViewById(R.id.editGenero);
         editID = (EditText) findViewById(R.id.editID);
+        editUser = (EditText) findViewById(R.id.editUser);
+        editRole = (EditText) findViewById(R.id.editRole);
+        editDepartment = (EditText) findViewById(R.id.editDepartment);
+
+        Intent intent = getIntent();
+        employee = (Employee) intent.getSerializableExtra("employee_id");
+
+        editNome.setText(employee.getName());
+        editGenero.setText(employee.getGender());
+        editID.setText(String.valueOf(employee.getId()));
+        editUser.setText(String.valueOf(employee.getUser_id()));
+        editRole.setText(String.valueOf(employee.getRole_id()));
+        editDepartment.setText(String.valueOf(employee.getDepartment_id()));
     }
 
     public void updateEmployee(View v){
         try{
-            Intent intent = getIntent();
-            Employee employee = (Employee) intent.getSerializableExtra("employee_id");
-
-            editNome.setText(employee.getName());
-            editGenero.setText(employee.getGender());
-            editID.setText(String.valueOf(employee.getId()));
-
             employee = new Employee();
             employee.setName(editNome.getText().toString());
             employee.setGender(editGenero.getText().toString());
+            employee.setUser_id(Integer.parseInt(editUser.getText().toString()));
+            employee.setRole_id(Integer.parseInt(editRole.getText().toString()));
+            employee.setDepartment_id(Integer.parseInt(editDepartment.getText().toString()));
+            employee.setId(Integer.parseInt(editID.getText().toString()));
+
             new UploadToMyAPI().execute(employee);
 
         }catch (Exception e)
@@ -98,7 +114,7 @@ public class EmployeeUpdateActivity extends AppCompatActivity
 
                 DataOutputStream outputStream = new DataOutputStream(urlConnection.getOutputStream());
 
-                result = Util.convertEmployeetoJSON(params[0]);
+                result = Util.convertEmployeetoJSONAlter(params[0]);
                 outputStream.writeBytes(result);
 
                 serverResponseCode = urlConnection.getResponseCode();
@@ -130,7 +146,7 @@ public class EmployeeUpdateActivity extends AppCompatActivity
                 Intent listEmployee;
                 if (Util.getStatusFromJSON(serverResponseMessage).equals("1"))
                 {
-                    Toast.makeText(EmployeeUpdateActivity.this, "funcionário alterado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EmployeeUpdateActivity.this, "Funcionário alterado com sucesso!", Toast.LENGTH_SHORT).show();
                     listEmployee = new Intent(EmployeeUpdateActivity.this, ListEmployeeActivity.class);
                     startActivity(listEmployee);
                 } else

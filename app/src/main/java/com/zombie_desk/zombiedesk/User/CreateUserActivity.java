@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zombie_desk.zombiedesk.MainActivity;
 import com.zombie_desk.zombiedesk.R;
 import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.model.User;
@@ -26,7 +27,6 @@ public class CreateUserActivity extends Activity
     EditText txtLogin;
     EditText txtPass;
     TextView lblResult;
-    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,8 +34,8 @@ public class CreateUserActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
         txtLogin = (EditText) findViewById(R.id.txtName);
+        txtPass = (EditText) findViewById(R.id.txtPassword);
         lblResult = (TextView) findViewById(R.id.lblResult);
-        txtPass = (EditText) findViewById(R.id.txtGender);
     }
 
     public void cadastrarUsuario(View v)
@@ -44,7 +44,6 @@ public class CreateUserActivity extends Activity
         user.setUsername(txtLogin.getText().toString());
         user.setPassword(txtPass.getText().toString());
         new UploadToMyAPI().execute(user);
-
     }
 
     private class UploadToMyAPI extends AsyncTask<User, Void, String>
@@ -115,9 +114,9 @@ public class CreateUserActivity extends Activity
             if (isConnected)
             {
                 Intent listUser;
-                if (Util.getStatusFromJSON(serverResponseMessage).equals("1"))
+                if (Util.getStatusFromJSON(serverResponseMessage) == null)
                 {
-                    Toast.makeText(CreateUserActivity.this, "usuario registrado no Sistema!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateUserActivity.this, "Usuário registrado no Sistema!", Toast.LENGTH_SHORT).show();
                     listUser = new Intent(CreateUserActivity.this, ListUserActivity.class);
                     startActivity(listUser);
                 } else
@@ -127,9 +126,9 @@ public class CreateUserActivity extends Activity
             }
         }
     }
-    public void back(View v)
+    public void backMain(View v)
     {
-        Intent intent = new Intent(this, ListUserActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

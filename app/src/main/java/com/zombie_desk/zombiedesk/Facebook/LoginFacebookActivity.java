@@ -12,6 +12,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.zombie_desk.zombiedesk.MainActivity;
 import com.zombie_desk.zombiedesk.R;
 
 public class LoginFacebookActivity extends AppCompatActivity
@@ -58,7 +59,7 @@ public class LoginFacebookActivity extends AppCompatActivity
 
 
     private void redirect(String ID){
-        Intent intent = new Intent(LoginFacebookActivity.this,FriendsActivity.class);
+        Intent intent = new Intent(LoginFacebookActivity.this,MainActivity.class);
         intent.putExtra("FB_ID",ID);
         startActivity(intent);
     }

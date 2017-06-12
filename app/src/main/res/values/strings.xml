@@ -1,17 +1,33 @@
 <resources>
     <string name="app_name">Zombie Desk - O maior e melhor</string>
+
     <string name="ErrorIntent">Action not supported</string>
+
     <string-array name="actions">
-        <item>Browser</item>
-        <item>Fazer uma chamada</item>
-        <item>Mapa</item>
-        <item>Tocar musica</item>
-        <item>SMS</item>
-        <item>Compartilhar</item>
-        <item>Alarme</item>
-        <item>Configurações</item>
+    <item>Browser</item>
+    <item>Fazer uma chamada</item>
+    <item>Mapa</item>
+    <item>Tocar musica</item>
+    <item>SMS</item>
+    <item>Compartilhar</item>
+    <item>Alarme</item>
+    <item>Configurações</item>
+    <item>Sair</item>
+</string-array>
+
+    <string-array name="Menu">
+        <item>Cadastrar usuário</item>
+        <item>Listar usuários</item>
+        <item>Listar funcionários</item>
+        <item>Listar funções</item>
+        <item>Listar departamentos</item>
+        <item>Listar chamados</item>
+        <item>Interação com aplicações existentes no aparelho</item>
+        <item>Animação da propriedade</item>
+        <item>Animação</item>
         <item>Sair</item>
     </string-array>
+
     <string name="title_activity_login">Acesso</string>
 
     <!-- Strings related to login -->
@@ -28,20 +44,16 @@
     </string>
 
     <string-array name="clerklist">
-        <item>Leonardo Belintani</item>
-        <item>Alex Galante</item>
-    </string-array>
-    <string-array name="employeelist">
-        <item>employee a</item>
-        <item>employee b</item>
-        <item>employee c</item>
-        <item>employee d</item>
+        <item>LEONARDO JOSE C BELINTANI</item>
+        <item>ALEX VOLNEI GALANTE</item>
     </string-array>
 
-    <string name="facebook_app_id">263720414092207</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="statuslist">
+        <item>Novo</item>
+        <item>Em andamento</item>
+        <item>Parado</item>
+        <item>Suspenso</item>
+    </string-array>
 
     <string-array name="animation">
         <item>Transparencia</item>
@@ -62,4 +74,10 @@
         <item>Interpolador Linear</item>
         <item>OvershootInterpolator</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="facebook_app_id">263720414092207</string>
+
 </resources>

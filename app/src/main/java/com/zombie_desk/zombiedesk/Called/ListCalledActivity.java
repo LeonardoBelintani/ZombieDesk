@@ -59,8 +59,6 @@ public class ListCalledActivity extends AppCompatActivity {
                 urlConnection.setDoInput(true);
                 urlConnection.setDoOutput(true);
 
-                int test = urlConnection.getResponseCode();
-
                 String result = Util.webToString(urlConnection.getInputStream());
 
                 return result;
@@ -88,8 +86,8 @@ public class ListCalledActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                     {
                         Called call = calls.get(position);
-                        Intent intent = new Intent(ListCalledActivity.this, CallUpdateActivity.class);
-                        intent.putExtra("call_id", call);
+                        Intent intent = new Intent(ListCalledActivity.this, DetailsCallActivity.class);
+                        intent.putExtra("call", call);
                         startActivity(intent);
                     }
                 });

@@ -22,49 +22,13 @@
         android:text="Employee Registration"
         android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Type name"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/txtGender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Type gender"
-        android:inputType="textPassword"
-        android:layout_below="@+id/txtName"
-        android:layout_alignParentStart="true" />
-    <EditText
-        android:id="@+id/txtBirth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Type birth"
-        android:inputType="textPassword"
-        android:layout_below="@+id/txtGender"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
         android:id="@+id/btnSave"
         android:onClick="cadastrarEmployee"
-        android:layout_below="@+id/editTextBirth"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"/>
 
     <Button
@@ -72,26 +36,83 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnReturn"
-        android:layout_above="@+id/lblResult"
-        android:layout_alignParentEnd="true" />
+        android:onClick="back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSave"
-        android:layout_marginTop="49dp"
         android:id="@+id/lblResult"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/btnReturn"
+        android:layout_alignParentEnd="true"/>
 
     <EditText
-        android:id="@+id/editTextBirth"
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/editGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:hint="Birth"
-        android:inputType="date"/>
+        android:layout_below="@+id/editName"
+        android:hint="Gender"
+        android:inputType="textPersonName"/>
 
+    <TextView
+        android:id="@+id/lblUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinnerUser"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:text="Selecione um usuário"/>
+    <Spinner
+        android:id="@+id/spinnerUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/editGender"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/lblDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinnerRole"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:text="Selecione um departamento"/>
+    <Spinner
+        android:id="@+id/spinnerDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerUser"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp"/>
+
+    <TextView
+        android:id="@+id/lblRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinnerRole"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="23dp"
+        android:text="Selecione um cargo"/>
+    <Spinner
+        android:id="@+id/spinnerRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/spinnerDepartment"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

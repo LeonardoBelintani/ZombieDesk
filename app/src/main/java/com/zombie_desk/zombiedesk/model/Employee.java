@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by Lab. Desenvolvimento on 23/03/2017.
+ * Created by Lab. Leonardo Belintani on 23/03/2017.
  */
 
 public class Employee implements Serializable
@@ -15,7 +15,7 @@ public class Employee implements Serializable
     private int id;
     private String name;
     private String gender;
-    private Date birth;
+    private String birth;
     private int user_id;
     private int role_id;
     private int department_id;
@@ -23,12 +23,11 @@ public class Employee implements Serializable
     public Employee() {
     }
 
-    public Employee(int id, String name, String gender, Date birth, int user_id, int role_id, int department_id)
+    public Employee(int id, String name, String gender, String birth, int user_id, int role_id, int department_id)
     {
         this.id = id;
         this.name = name;
         this.gender = gender;
-        this.birth = birth;
         this.user_id = user_id;
         this.role_id = role_id;
         this.department_id = department_id;
@@ -70,16 +69,6 @@ public class Employee implements Serializable
         this.gender = gender;
     }
 
-    public Date getBirth()
-    {
-        return birth;
-    }
-
-    public void setBirth(Date birth)
-    {
-        this.birth = birth;
-    }
-
     public int getUser_id()
     {
         return user_id;
@@ -108,12 +97,6 @@ public class Employee implements Serializable
     public void setDepartment_id(int department_id)
     {
         this.department_id = department_id;
-    }
-
-    public Employee(String name, String gender, Date birth) {
-        this.name = name;
-        this.gender = gender;
-        this.birth = birth;
     }
 
 }

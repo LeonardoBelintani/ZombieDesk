@@ -1,7 +1,7 @@
 package com.zombie_desk.zombiedesk.model;
 
 /**
- * Created by Lab. Desenvolvimento on 23/03/2017.
+ * Created by Lab. Leonardo Belintani on 23/03/2017.
  */
 
 public class Role {
@@ -9,6 +9,11 @@ public class Role {
     private String description;
 
     public Role() {
+    }
+    @Override
+    public String toString()
+    {
+        return this.description;
     }
 
     public Role(String description) {

@@ -30,15 +30,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".User.CreateUserActivity"/>
         <activity android:name=".InternalActionsActivity"/>
-        <activity android:name=".Login.LoginActivity"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -63,22 +64,25 @@
         <activity android:name=".Called.CreateCalledActivity"/>
         <activity android:name=".Facebook.LoginFacebookActivity">
         </activity>
-        <activity android:name=".Facebook.FriendsActivity">
-        </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity android:name=".Called.CallUpdateActivity">
-        </activity>
         <activity android:name=".User.UpdateUserActivity">
         </activity>
         <activity android:name=".AnimationActivity">
         </activity>
         <activity android:name=".AnimationPropertyActivity">
         </activity>
-        <activity android:name=".InicioActivity">
+        <activity android:name=".Login.InicioActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Called.DetailsCallActivity">
         </activity>
     </application>
 

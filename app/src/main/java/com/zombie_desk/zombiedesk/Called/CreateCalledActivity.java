@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.zombie_desk.zombiedesk.Adapters.CalledAdapter;
 import com.zombie_desk.zombiedesk.Adapters.EmployeeAdapter;
+import com.zombie_desk.zombiedesk.MainActivity;
 import com.zombie_desk.zombiedesk.R;
 import com.zombie_desk.zombiedesk.Util.Util;
 import com.zombie_desk.zombiedesk.model.Called;
@@ -34,10 +35,13 @@ public class CreateCalledActivity extends Activity
     EditText txtLocation;
     EditText txtReason;
     EditText txtPriority;
-    EditText txtStatus;
     TextView lblResult;
+    Spinner spinnerStatus;
     Spinner spinnerResponsible;
     Spinner spinnerEmployee;
+    boolean isConnected = false;
+    int serverResponseCode;
+    String serverResponseMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,8 +51,8 @@ public class CreateCalledActivity extends Activity
         txtLocation = (EditText) findViewById(R.id.txtLocation);
         txtReason = (EditText) findViewById(R.id.txtReason);
         txtPriority = (EditText) findViewById(R.id.txtPriority);
-        txtStatus = (EditText) findViewById(R.id.txtStatus);
         lblResult = (TextView) findViewById(R.id.lblResult);
+        spinnerStatus = (Spinner) findViewById(R.id.spinnerStatus);
         spinnerResponsible = (Spinner) findViewById(R.id.spinnerResponsible);
         spinnerEmployee = (Spinner) findViewById(R.id.spinnerEmployee);
         loadCalls();
@@ -60,7 +64,7 @@ public class CreateCalledActivity extends Activity
         called.setLocale(txtLocation.getText().toString());
         called.setReason(txtReason.getText().toString());
         called.setPriority(txtPriority.getText().toString());
-        called.setStatus(txtStatus.getText().toString());
+        called.setStatus(spinnerStatus.getSelectedItem().toString());
         Long idEmployee = spinnerEmployee.getSelectedItemId();
         Long idResponsible = spinnerResponsible.getSelectedItemId();
         called.setEmployee_id(idEmployee.intValue());
@@ -68,10 +72,6 @@ public class CreateCalledActivity extends Activity
 
         new UploadToMyAPI().execute(called);
     }
-
-    boolean isConnected = false;
-    int serverResponseCode;
-    String serverResponseMessage;
 
     private class UploadToMyAPI extends AsyncTask<Called, Void, String>
     {
@@ -139,8 +139,7 @@ public class CreateCalledActivity extends Activity
                 try
                 {
                     Intent listCalls;
-
-                    if (serverResponseMessage.equals("1"))
+                    if (serverResponseMessage != null)
                     {
                         Toast.makeText(CreateCalledActivity.this, "Chamado registrado no Sistema!", Toast.LENGTH_SHORT).show();
                         listCalls = new Intent(CreateCalledActivity.this, ListCalledActivity.class);
@@ -159,7 +158,7 @@ public class CreateCalledActivity extends Activity
 
     public void back(View v)
     {
-        Intent intent = new Intent(this, ListCalledActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

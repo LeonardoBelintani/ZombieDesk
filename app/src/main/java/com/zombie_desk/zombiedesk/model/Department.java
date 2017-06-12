@@ -1,7 +1,7 @@
 package com.zombie_desk.zombiedesk.model;
 
 /**
- * Created by Lab. Desenvolvimento on 23/03/2017.
+ * Created by Lab. Leonardo Belintani on 23/03/2017.
  */
 
 public class Department {
@@ -15,6 +15,12 @@ public class Department {
     public Department(String description, String locale) {
         this.description = description;
         this.locale = locale;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.description;
     }
 
     public int getId() {

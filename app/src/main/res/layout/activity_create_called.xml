@@ -28,7 +28,7 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Type location"
-        android:layout_below="@+id/spinner2"
+        android:layout_below="@+id/spinnerEmployee"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"/>
 
@@ -39,7 +39,6 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Type reason"
-        android:inputType="textPassword"
         android:layout_below="@+id/txtLocation"
         android:layout_alignParentStart="true"
         android:layout_marginTop="21dp"/>
@@ -53,16 +52,15 @@
         android:layout_below="@+id/txtReason"
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp"/>
-    <EditText
-        android:id="@+id/txtStatus"
+
+    <Spinner
+        android:id="@+id/spinnerStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Type status"
-        android:layout_below="@+id/txtPriority"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"/>
+        android:entries="@array/statuslist"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentStart="true"/>
+
 
     <Button
         android:text="Save"
@@ -91,23 +89,48 @@
         android:layout_alignParentStart="true"/>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerResponsible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="39dp"
         android:entries="@array/clerklist"
-        />
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"/>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerEmployee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnReturn"
         android:layout_alignParentStart="true"
-        />
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="19dp"
+        android:text="Selecione um responsável"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Selecione um funcionário"
+        android:layout_below="@+id/spinnerResponsible"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione o status"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/txtPriority"
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

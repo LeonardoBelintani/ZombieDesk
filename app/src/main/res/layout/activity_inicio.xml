@@ -23,31 +23,31 @@
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtPassword"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="30dp"
         android:background="@color/common_action_bar_splitter"
         android:ems="10"
-        android:hint="DIGITE SEU USUÁRIO"
         android:inputType="textEmailAddress"
-        android:layout_alignBottom="@+id/txtPassword"
-        android:layout_alignParentStart="true"/>
+        android:text="alex@zombie.com.br"/>
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/lblResult"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="27dp"
         android:background="@color/common_action_bar_splitter"
-        android:hint="DIGITE SUA SENHA"
         android:inputType="numberPassword"
-        android:layout_above="@+id/lblResult"
-        android:layout_alignParentStart="true"/>
+        android:text="123456"/>
 
     <Button
         android:text="ACESSAR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnAcess"
-        android:onClick="acessar"
+        android:onClick="Inicio_acessar"
         android:layout_above="@+id/login_button"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="57dp"/>

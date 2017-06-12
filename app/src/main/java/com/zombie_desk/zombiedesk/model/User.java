@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Lab. Desenvolvimento on 23/03/2017.
+ * Created by Lab. Leonardo Belintani on 23/03/2017.
  */
 
 public class User implements Serializable
@@ -24,6 +24,13 @@ public class User implements Serializable
     public User(String password, String username) {
         this.password = password;
         this.username = username;
+    }
+
+    public User(String password, String username, int id)
+    {
+        this.password = password;
+        this.username = username;
+        this.id = id;
     }
 
     public String getPassword() {

@@ -4,7 +4,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -41,12 +40,32 @@
 
     <EditText
         android:id="@+id/editID"
-        android:layout_width="match_parent"
+        android:layout_width="86dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         />
-
+    <EditText
+        android:id="@+id/editUser"
+        android:layout_width="82dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        />
+    <EditText
+        android:id="@+id/editRole"
+        android:layout_width="82dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        />
+    <EditText
+        android:id="@+id/editDepartment"
+        android:layout_width="82dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        />
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="match_parent"

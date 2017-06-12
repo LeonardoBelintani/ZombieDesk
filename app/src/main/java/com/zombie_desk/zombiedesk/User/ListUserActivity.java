@@ -60,11 +60,6 @@ public class ListUserActivity extends AppCompatActivity
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setDoInput(true);
                 urlConnection.setDoOutput(true);
-                /*urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("POST");
-                urlConnection.connect();*/
-
-                int test = urlConnection.getResponseCode();
 
                 String result = Util.webToString(urlConnection.getInputStream());
 
@@ -98,9 +93,6 @@ public class ListUserActivity extends AppCompatActivity
                         startActivity(intent);
                     }
                 });
-//                Intent intent = new Intent(ListUserActivity.this, CreateCalledActivity.class);
-//                intent.putExtra("list_users", users);
-//                startActivity(intent);
             }
         }
     }
